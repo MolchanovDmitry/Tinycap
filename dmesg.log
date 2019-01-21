@@ -1,0 +1,76 @@
+Start capturing
+
+[  229.240576@3] usb 1-2.3: usbfs: process 6315 (com.xstar.tv) did not claim interface 0 before use
+[  229.244067@3] usb 1-2.3: usbfs: process 6315 (com.xstar.tv) did not claim interface 0 before use
+[  229.738904@0] codec:vdec_create instance ffffff8000944000, total 1
+[  229.739632@0] codec:no drmmode
+[  229.742668@0] codec:is_reset=0
+[  229.745721@0] codec:vdec_init, dev_name:ammvdec_h264, vdec_type=VDEC_TYPE_FRAME_BLOCK
+[  229.754658@0] ammvdec_h264_mmu_init tvp = 0x0 mmu_enable 0
+[  229.758856@0] decoder_bmmu_box_alloc_box, tvp_flags = 0
+[  229.764379@0] 0: ammvdec_h264_probe mmu_enable 0 double_write_mode 0
+[  229.770906@0] ammvdec_h264 mem-addr=0,buff_offset=59b10000,buf_start=5ab00000
+[  229.777445@0] codec:vdec1 video changed to 3840 x 2160 60 fps clk->667MHZ
+[  229.784067@0] H264 sysinfo: 1920x1080 duration=3203, pts_outside=1, sync_outside=0, use_idr_framerate=0
+[  229.793871@0] vh264_init, vaddr=ffffffc051cca000 phy_addr=0000000051cca000
+[  229.800228@0] codec:vfm map vdec-map-0 created
+[  229.804662@0] ionvid: info: reg:ionvideo
+[  229.808525@0] tv_vout: vout [tv_set_vframe_rate_hint] duration = 3203, policy = 0!
+[  229.817258@0] tv_vout: tv_set_vframe_rate_hint: sent uevent FRAME_RATE_HINT=3203
+[  229.823342@0] codec:vdec_init, vf_provider_name = vdec.h264.00
+[  229.829377@0] ionvid: info: ionvideo open
+[  229.833046@0] ionvid: info: ionvideo: set freerun mode
+[  229.853458@1] 0: AV_SCRATCH_1 = 841fe078, AV_SCRATCH_2 a022
+[  229.853542@1] 0: frame_mbs_only_flag 1, crop_bottom 4,  frame_height 1080, 0: mb_height 68,crop_right 0, frame_width 1920, mb_width 120
+[  229.865942@1] 0: mb height/widht/total: 44/78/1fe0 level_idc 28 max_ref_num 4
+[  229.873079@1] 0: vh264_set_params active_buf_spec_num 11 reorder_pic_num 5 collocate_buf_num 8
+[  229.881795@1] 0: num_ref_frames change from 0 to 4
+[  230.045924@0] type=1400 audit(1548065938.942:113): avc: denied { read write } for pid=6498 comm="Thread-7" name="pcmC1D0c" dev="tmpfs" ino=16450 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:audio_device:s0 tclass=chr_file permissive=1
+[  230.065485@0] type=1400 audit(1548065938.942:114): avc: denied { open } for pid=6498 comm="Thread-7" path="/dev/snd/pcmC1D0c" dev="tmpfs" ino=16450 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:audio_device:s0 tclass=chr_file permissive=1
+[  230.085820@0] type=1400 audit(1548065938.942:115): avc: denied { ioctl } for pid=6498 comm="Thread-7" path="/dev/snd/pcmC1D0c" dev="tmpfs" ino=16450 ioctlcmd=4101 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:audio_device:s0 tclass=chr_file permissive=1
+
+Log below after force close the application
+
+[  241.367723@2] codec:is_reset=1
+[  241.372159@2] ionvid: info: unreg:ionvideo
+[  241.372326@2] 0: vh264_stop
+[  241.376425@2] codec:vdec_release instance ffffff8000944000, total 0
+[  241.379778@2] codec:vdec_create instance ffffff8000b41000, total 1
+[  241.386518@2] codec:no drmmode
+[  241.390455@2] codec:is_reset=1
+[  241.393265@3] codec:vdec_init, dev_name:ammvdec_h264, vdec_type=VDEC_TYPE_FRAME_BLOCK
+[  241.404458@3] ammvdec_h264_mmu_init tvp = 0x0 mmu_enable 0
+[  241.404965@3] decoder_bmmu_box_alloc_box, tvp_flags = 0
+[  241.411112@3] 0: ammvdec_h264_probe mmu_enable 0 double_write_mode 0
+[  241.419588@3] ammvdec_h264 mem-addr=0,buff_offset=59b10000,buf_start=5ab00000
+[  241.424774@3] codec:vdec1 video changed to 3840 x 2160 60 fps clk->667MHZ
+[  241.431076@3] H264 sysinfo: 1920x1080 duration=3203, pts_outside=1, sync_outside=0, use_idr_framerate=0
+[  241.440792@3] vh264_init, vaddr=ffffffc00e80e000 phy_addr=000000000e80e000
+[  241.446733@3] codec:vfm map vdec-map-0 created
+[  241.451046@3] ionvid: info: reg:ionvideo
+[  241.455385@3] codec:vdec_init, vf_provider_name = vdec.h264.00
+[  241.461578@3] codec:is_reset=0
+[  241.483739@2] tv_vout: vout [tv_set_vframe_rate_end_hint] return mode = 19, policy = 0!
+[  241.489830@3] tv_vout: tv_set_vframe_rate_end_hint: sent uevent FRAME_RATE_END_HINT
+[  241.495415@2] binder: undelivered transaction 244690
+[  241.499217@2] binder: undelivered transaction 244720
+[  241.504006@2] binder: undelivered transaction 244711
+[  241.504254@3] ionvid: info: unreg:ionvideo
+[  241.504401@3] 0: vh264_stop
+[  241.506710@3] xhci-hcd xhci-hcd.0.auto: Signal while waiting for configure endpoint command
+[  241.518143@3] usb 1-2.3: Not enough bandwidth for altsetting 0
+[  241.530972@3] codec:vdec_release instance ffffff8000b41000, total 0
+[  241.531751@2] binder: undelivered transaction 244697
+[  241.531962@2] binder: undelivered transaction 244676
+[  241.531966@2] binder: undelivered transaction 244677
+[  241.531969@2] binder: undelivered transaction 244701
+[  241.531971@2] binder: undelivered transaction 244717
+[  241.532041@0] binder: 4149:6479 transaction failed 29189, size 88-0
+[  241.567015@3] ionvideo_release_map 0 OK
+[  241.570247@3] ionvid: info: ionvideo_stop_generating!!!!
+[  241.575819@3] ionvid: info: ionvideo release
+[  241.581629@0] binder: 4148:4148 transaction failed 29189, size 60-0
+[  241.588508@0] binder: 4420:4515 transaction failed 29189, size 348-0
+[  277.833054@2] type=1400 audit(1548065986.722:116): avc: denied { read } for pid=5750 comm="tmp-mksh" name="primary" dev="tmpfs" ino=9317 scontext=u:r:init:s0 tcontext=u:object_r:storage_file:s0 tclass=lnk_file permissive=1
+[  277.852392@2] type=1400 audit(1548065986.722:117): avc: denied { read } for pid=5750 comm="tmp-mksh" name="primary" dev="tmpfs" ino=14671 scontext=u:r:init:s0 tcontext=u:object_r:mnt_user_file:s0 tclass=lnk_file permissive=1
+[  277.867887@2] type=1400 audit(1548065986.752:118): avc: denied { write } for pid=5750 comm="tmp-mksh" name="0" dev="fuse" ino=1 scontext=u:r:init:s0 tcontext=u:object_r:fuse:s0 tclass=dir permissive=1

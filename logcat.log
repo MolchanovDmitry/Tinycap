@@ -1,0 +1,5 @@
+2019-01-21 12:09:25.094 7788-7886/com.somecompany.tv E/pcm.c: /dev/snd/pcmC1D0c
+2019-01-21 12:09:25.101 7788-7886/com.somecompany.tv E/pcm.c: cannot set hw params, errni = 5
+2019-01-21 12:09:25.101 7788-7886/com.somecompany.tv E/pcm.c: fail_close
+2019-01-21 12:09:25.101 7788-7886/com.somecompany.tv D/pcm.c: return pcm
+2019-01-21 12:09:25.102 7788-7886/com.somecompany.tv E/pcmreadi: failed to open PCM
